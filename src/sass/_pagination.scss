@@ -105,12 +105,38 @@ body {
   display: block;
   margin-right: 20px;
   margin-bottom: 20px;
+  height: 380px;
   background-color: #fce5165d;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px rgba(15, 15, 15, 0.288);
+  box-shadow: 5px 5px 10px rgba(15, 15, 15, 0.288);
+  position: relative;
+  transition: 0.5s;
+  top: 10px;
 }
+.photo-card:hover {
+  display: block;
+  height: 385px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #16cefc5d;
+  border-radius: 10px;
+  box-shadow: 15px 15px 15px rgba(15, 15, 15, 0.288);
+  top: 0;
+}
+
+.photo-card:focus {
+  display: block;
+  height: 390px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #16cefc5d;
+  border-radius: 10px;
+  box-shadow: 15px 15px 15px rgba(15, 15, 15, 0.288);
+}
+
 img {
   border-radius: 10px;
+  height: 320px;
 }
 .info {
   display: flex;
