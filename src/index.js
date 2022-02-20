@@ -17,6 +17,13 @@ refs.searchForm.addEventListener('submit', onSerch);
 refs.loadMareBtn.addEventListener('click', onloadMore);
 refs.loadMareBtn.classList.add('is-hidden');
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  scrollZoom: true,
+  captionDelay: 250,
+  captionsData: 'alt',
+  doubleTapZoom: 2,
+});
+
 function onSerch(e) {
   e.preventDefault();
   galeryApiSerwice.query = e.currentTarget.elements.searchQuery.value.trim();
@@ -30,7 +37,7 @@ function onSerch(e) {
     clearImagesContainer();
     refs.loadMareBtn.classList.remove('is-hidden');
     appendImagesMarcup(response);
-
+    lightbox.refresh();
     Notiflix.Notify.info(`✨ Hooray! We found ${response.totalHits} images.`);
 
     if (response.hits.length === 0) {
@@ -46,10 +53,10 @@ function onSerch(e) {
 function onloadMore() {
   galeryApiSerwice.fetchImg().then(response => {
     appendImagesMarcup(response);
+    lightbox.refresh();
     if (response.hits.length < 40) {
       refs.loadMareBtn.classList.add('is-hidden');
       Notiflix.Notify.success('Images are out! BYE BRO! Or pay money! 💰');
-
       console.log(response);
     }
   });
