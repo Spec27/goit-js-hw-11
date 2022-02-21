@@ -54,8 +54,8 @@ function onloadMore() {
   galeryApiSerwice
     .fetchImg()
     .then(response => {
-      lightbox.refresh();
       appendImagesMarcup(response);
+      lightbox.refresh();
       if (response.hits.length < 40) {
         refs.loadMareBtn.classList.add('is-hidden');
         Notiflix.Notify.success('Images are out! BYE BRO! Or pay money! 💰');
