@@ -7,7 +7,7 @@ const axios = require('axios');
 export default class GaleryApiSerwice {
   constructor() {
     this.searchQuery = '';
-    this.page += 1;
+    this.page = 1;
   }
 
   async fetchImg() {

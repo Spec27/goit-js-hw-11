@@ -51,15 +51,17 @@ function onSerch(e) {
 }
 
 function onloadMore() {
-  galeryApiSerwice.fetchImg().then(response => {
-    appendImagesMarcup(response);
-    lightbox.refresh();
-    if (response.hits.length < 40) {
-      refs.loadMareBtn.classList.add('is-hidden');
-      Notiflix.Notify.success('Images are out! BYE BRO! Or pay money! 💰');
-      console.log(response);
-    }
-  });
+  galeryApiSerwice
+    .fetchImg()
+    .then(response => {
+      lightbox.refresh();
+      appendImagesMarcup(response);
+      if (response.hits.length < 40) {
+        refs.loadMareBtn.classList.add('is-hidden');
+        Notiflix.Notify.success('Images are out! BYE BRO! Or pay money! 💰');
+      }
+    })
+    .catch(Error);
 }
 
 function appendImagesMarcup(response) {
